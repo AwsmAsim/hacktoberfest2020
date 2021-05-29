@@ -1,0 +1,8 @@
+66.6.33.159 tumblr.com
+66.6.33.149 tumblr.com
+66.6.33.159 www.tumblr.com
+66.6.33.149 www.tumblr.com
+69.147.92.13 media.tumblr.com
+69.147.92.14 78.media.tumblr.com
+119.161.11.11 assets.tumblr.com
+119.161.10.101 static.tumblr.com
