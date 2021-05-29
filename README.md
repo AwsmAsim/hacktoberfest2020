@@ -2,8 +2,6 @@
 
 <p align="center">
   <img src="https://github.com/N1ght420/hacktoberfest2020/blob/main/FILE/hacktoberfest.png">
-  <br>
-  <a href="https://sourcerer.io/fame/N1ght420/N1ght420/hacktoberfest2020/links/0"><img src="https://sourcerer.io/fame/N1ght420/N1ght420/hacktoberfest2020/images/0"></a>
 </p><br>
 
 ### This is a repo with learning propose to make pull request(PR) and get contribute on opensource project. Made specifically for HACKTOBERFEST 2020!  
