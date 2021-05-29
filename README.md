@@ -5,7 +5,6 @@
   <br>
   <a href="https://sourcerer.io/fame/N1ght420/N1ght420/hacktoberfest2020/links/0"><img src="https://sourcerer.io/fame/N1ght420/N1ght420/hacktoberfest2020/images/0"></a>
   <a href="https://sourcerer.io/fame/N1ght420/N1ght420/hacktoberfest2020/links/1"><img src="https://sourcerer.io/fame/N1ght420/N1ght420/hacktoberfest2020/images/1"></a>
-  <a href="https://sourcerer.io/fame/N1ght420/N1ght420/hacktoberfest2020/links/2"><img src="https://sourcerer.io/fame/N1ght420/N1ght420/hacktoberfest2020/images/2"></a>
 </p><br>
 
 ### This is a repo with learning propose to make pull request(PR) and get contribute on opensource project. Made specifically for HACKTOBERFEST 2020!  
