@@ -1,0 +1,150 @@
+#!/bin/sh
+
+# Colors
+blue='\e[1;34'
+cyan='\e[1;36m'
+green='\e[1;34m'
+okegreen='\033[92m'
+lightgreen='\e[1;32m'
+white='\e[1;37m'
+red='\e[1;31m'
+yellow='\e[1;33m'
+
+# Banner
+banner(){
+    clear
+    echo -e ""
+    echo -e "$red    フ$yellowァ$greenッ$cyanク$okegreenユ$lightgreenー"
+    echo -e ""
+}
+
+echo -e "$white"
+read -p " Target : " target;
+
+echo -e ""
+echo -e "$yellow [?]$white Scan type"
+echo -e ""
+echo -e "$cyan  01$red :$white TCP syn port scan"
+echo -e "$cyan  02$red :$white TCP connect port scan"
+echo -e "$cyan  03$red :$white UDP port scan"
+echo -e "$cyan  04$red :$white TCP ack port scan"
+echo -e "$cyan  05$red :$white only port scan"
+echo -e "$cyan  06$red :$white only host discover"
+echo -e "$cyan  07$red :$white arp discovery on a local network"
+echo -e "$cyan  08$red :$white disable DNS resolution"
+echo -e ""
+read -p " Select one : " scan;
+if [ $scan = 1 ]
+then
+    scan='-sS'
+elif [ $scan = 2 ]
+then
+    scan='-sT'
+elif [ $scan = 3 ]
+then
+    scan='–sU'
+elif [ $scan = 4 ]
+then
+    scan='–sA'
+elif [ $scan = 5 ]
+then
+    scan='-Pn'
+elif [ $scan = 6 ]
+then
+    scan='-sn'
+elif [ $scan = 7 ]
+then
+    scan='-PR'
+elif [ $scan = 8 ]
+then
+    scan='-n'
+else
+    scan=''
+fi
+
+
+echo -e ""
+echo -e "$yellow [?]$white Detection type"
+echo -e ""
+echo -e "$cyan  01$red :$white detect the version of services running"
+echo -e "$cyan  02$red :$white detect operating system of the target"
+echo -e "$cyan  03$red :$white aggressive scan"
+echo -e ""
+read -p " Select one : " detect;
+if [ $detect = 1 ]
+then
+    detect='-sV'
+elif [ $detect = 2 ]
+then
+    detect='-O'
+elif [ $detect = 3 ]
+then
+    detect='-A'
+else
+    detect=''
+fi
+
+echo -e ""
+echo -e "$yellow [?]$white Timing and performance"
+echo -e ""
+echo -e "$cyan  01$red :$white paranoid IDS evasion"
+echo -e "$cyan  02$red :$white sneaky IDS evasion"
+echo -e "$cyan  03$red :$white polite IDS evasion"
+echo -e "$cyan  04$red :$white normal IDS evasion"
+echo -e "$cyan  05$red :$white aggressive speed scan"
+echo -e "$cyan  06$red :$white insane speed scan"
+echo -e ""
+read -p " Select one : " timing;
+if [ $timing = 1 ]
+then
+    timing='-T0'
+elif [ $timing = 2 ]
+then
+    timing='-T1'
+elif [ $timing = 3 ]
+then
+    timing='-T2'
+elif [ $timing = 4 ]
+then
+    timing='-T3'
+elif [ $timing = 5 ]
+then
+    timing='-T4'
+elif [ $timing = 6 ]
+then
+    timing='-T5'
+else
+    timing=''
+fi
+
+echo -e ""
+echo -e "$yellow [?]$white Scripts"
+echo -e ""
+echo -e "$cyan  01$red :$white default script scan"
+echo -e "$cyan  02$red :$white banner grabbing"
+echo -e ""
+read -p " Select one : " script;
+if [ $script = 1 ]
+then
+    script='-sC'
+elif [ $script = 2 ]
+then
+    script='–script banner'
+else
+    script=''
+fi
+
+read -p " Scan all ports (y/n) ? " scanall;
+if [ $scanall = 'y' ]
+then
+    nmap -p- $scan $detect $timing $target
+elif [ $scanall = 'n' ]
+then
+    read -p " Port range : (ex:1-30) " range;
+    if [ $range = '' ]
+    then
+        nmap -F $target
+    else
+        nmap -p $range $scan $detect $timing $target
+    fi
+fi
